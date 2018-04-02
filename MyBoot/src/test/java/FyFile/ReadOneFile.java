@@ -1,4 +1,4 @@
-package File;
+package FyFile;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.StringUtils;
@@ -55,7 +55,7 @@ public class ReadOneFile {
     public static void main(String[] args) throws  Exception {
 
         for(String str:sourceList){
-            sourceMap= File.MyTools.getSourceMap(TxtFile+str,sourceMap);
+            sourceMap= MyTools.getSourceMap(TxtFile+str,sourceMap);
         }
 
         find(fileFolder,depth);
@@ -116,7 +116,7 @@ public class ReadOneFile {
             System.err.println(JSON.toJSONString(lineMap));
 
             String targetFileIndex=fileAllPath.replaceAll("\\\\","/").replaceAll(fySourceFloder,""),
-                        targetFile=targetFileIndex.replaceAll(".txt","");
+                    targetFile=targetFileIndex.replaceAll(".txt","");
             System.err.println(fyTargetFloder+targetFile);
             System.err.println("  --->  "+fyToFloder+targetFile);
 
@@ -138,7 +138,7 @@ public class ReadOneFile {
             }
 
 //            将生成最终的文件
-            File.MyTools.createFile(fyToFloder+targetFile,finalBuffer.toString());
+            MyTools.createFile(fyToFloder+targetFile,finalBuffer.toString());
 
 
         } catch (FileNotFoundException e) {
@@ -281,15 +281,15 @@ public class ReadOneFile {
         StringBuffer str = new StringBuffer("");
         Matcher matcher = Pattern.compile(regex).matcher(paramValue);
         while (matcher.find()) {
-              String matStr=matcher.group(0);
-              StringBuffer buffer=new StringBuffer();
-              if(sourceMap.get(matStr)!=null){
-                  buffer.append(matStr+":"+sourceMap.get(matStr));
-              }else{
-                  buffer.append(matStr);
-              }
-              buffer.append("&&");
-              str.append(buffer.toString());
+            String matStr=matcher.group(0);
+            StringBuffer buffer=new StringBuffer();
+            if(sourceMap.get(matStr)!=null){
+                buffer.append(matStr+":"+sourceMap.get(matStr));
+            }else{
+                buffer.append(matStr);
+            }
+            buffer.append("&&");
+            str.append(buffer.toString());
         }
         return (str.toString().length()>2)?str.toString().substring(0,str.toString().length()-2):str.toString();
     }
@@ -407,6 +407,3 @@ public class ReadOneFile {
 
 
 }
-
-
-

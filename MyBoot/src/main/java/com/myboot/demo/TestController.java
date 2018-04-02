@@ -1,40 +1,46 @@
 package com.myboot.demo;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 /**
  * Created by Administrator on 2018/2/26.
  */
-@RestController
+@Controller
 public class TestController {
-
-    @RequestMapping(value = "/test",method = RequestMethod.GET)
-    public String test(){
-        return "This is spring boot test...devToools is test....";
-    }
 
 
 
 
     // localhost:8080/demo/view   试图传参
     //参数直接传到页面上
-    @RequestMapping(value = "/view",method = RequestMethod.GET)
-    public String modelTest(Model model){
+    @RequestMapping(value = "/view")
+    public String modelTest(ModelMap model){
         model.addAttribute("name", "Mr.Lai");
+        model.addAttribute("date",new Date());
         int k=99;
-        System.out.println("------------->99992211");
-        System.out.println("mmmmm");
+        System.out.println("------------->1111");
+        System.out.println("mmmmmkkk");
         return  "demo/test";
     }
 
-
-
-    @RequestMapping(value = "/redirect",method = RequestMethod.GET)
+    //由接口的调用直接跳到相应的页面需要传参的操作
+    @RequestMapping("redirect")
     public String redirect(){
-        int k=0;
-        return "redirect7777777";
+        System.out.println("-->跳转页面内容   ");
+        return "redirect:/redir";
     }
+
+
+    @RequestMapping(value = "/redir")
+    public String redir(){
+        return  "redir";
+    }
+
 }
