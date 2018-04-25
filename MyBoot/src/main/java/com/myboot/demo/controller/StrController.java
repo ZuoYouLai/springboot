@@ -1,4 +1,4 @@
-package com.myboot.demo.Controller;
+package com.myboot.demo.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;

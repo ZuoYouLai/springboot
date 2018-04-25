@@ -1,14 +1,11 @@
-package com.myboot.demo.Controller;
+package com.myboot.demo.controller;
 
 import com.myboot.demo.entity.InterfaceTabl;
 import com.myboot.demo.service.InterfaceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.Map;
-import java.util.Objects;
 
 @RestController
 @RequestMapping("/sql")
