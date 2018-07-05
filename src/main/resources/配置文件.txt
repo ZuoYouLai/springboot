@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS interface_tabl;
+
+/*==============================================================*/
+/* Table: interface_tabl                                        */
+/*==============================================================*/
+CREATE TABLE interface_tabl
+(
+   interface_id         BIGINT                         NOT NULL AUTO_INCREMENT COMMENT 'interface_id接口主键的Id' ,
+   NAME                 VARCHAR(50)                    NULL COMMENT  '接口名称',
+   content              TEXT                           NULL COMMENT   '接口内容',
+   `created_at` TIMESTAMP NULL DEFAULT NULL COMMENT   '创建时间',
+   `updated_at` TIMESTAMP NULL DEFAULT NULL COMMENT   '更新时间',
+   PRIMARY KEY (`interface_id`)
+)ENGINE=INNODB AUTO_INCREMENT=20502 DEFAULT CHARSET=utf8
