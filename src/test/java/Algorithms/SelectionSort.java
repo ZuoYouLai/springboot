@@ -1,10 +1,6 @@
 package Algorithms;
 
-
-import java.util.Random;
-
 /**
- * Samlai
  * 选择排序函数  n(o^2)  【基础】
  */
 public class SelectionSort {

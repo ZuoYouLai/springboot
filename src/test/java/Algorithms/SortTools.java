@@ -77,7 +77,7 @@ public class SortTools {
             long start = System.currentTimeMillis();
             sortMethod.invoke(null,arr);
             long end = System.currentTimeMillis();
-            System.err.println(String.format("consume time  : %d ms",(end-start) ));
+            System.err.println(String.format("%s , consume time  : %d ms",cls.getSimpleName(),(end-start) ));
         } catch (Exception e) {
             e.printStackTrace();
         }
