@@ -1,5 +1,6 @@
 package Algorithms;
 
+import java.lang.reflect.Method;
 import java.util.Random;
 
 /**
@@ -45,7 +46,6 @@ public class SortTools {
 
 
 
-
     /**
      * 打印数组的内容
      * @param arr
@@ -56,6 +56,49 @@ public class SortTools {
             builder.append("  "+i);
         }
         System.err.println(builder.toString());
+    }
+
+
+
+
+
+    /**
+     * 进行获取排序算法的消耗时间，以比较性能
+     * @param arr
+     * @param cls
+     * @param methodName
+     */
+    public static void consumeTime(int[] arr,Class cls,String methodName){
+        //通过反射机制 运行函数
+        try {
+            //通过排序函数class对象获取排序的方法
+            Method sortMethod = cls .getMethod(methodName,new Class[]{int[].class});
+            //排序参数只有一个，是可毕竟数组arr
+            long start = System.currentTimeMillis();
+            sortMethod.invoke(null,arr);
+            long end = System.currentTimeMillis();
+            System.err.println(String.format("consume time  : %d ms",(end-start) ));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * 校验排序结果是否正确
+     * @param arr
+     * @return
+     */
+    public static boolean isSortRight(int arr[]){
+        boolean flag= true;
+        for(int k=0,total=arr.length ; k<(total-1) ; k++){
+            if(arr[k]>arr[k+1]){
+                flag = false;
+                break;
+            }
+        }
+        System.err.println("排序的结果  :  "+flag);
+        return flag;
     }
 
 

@@ -12,12 +12,17 @@ public class SelectionSort {
 
     public static void main(String[] args) {
 
-        int[] arr = SortTools.getRandArr(8,20,100);
+        int[] arr = SortTools.getRandArr(1000,1,100);
         SortTools.printArr(arr);
 
+        SortTools.consumeTime(arr, SelectionSort.class,"sort");
 
         sort(arr);
+        SortTools.isSortRight(arr);
+
         SortTools.printArr(arr);
+
+
     }
 
 
