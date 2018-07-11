@@ -45,9 +45,9 @@ public class MaxHeap {
      * @param oneElement
      */
     public void insertElement(int oneElement){
-        arr[count+1] = oneElement;
-        count++;
+        arr[count] = oneElement;
         shiftUp(count);
+        count++;
     }
 
     /**
@@ -107,16 +107,29 @@ public class MaxHeap {
 
 
     public static void main(String[] args) {
-        MaxHeap heap = new MaxHeap(100);
-        for(int k=0;k<50;k++){
+        int z = 10;
+        MaxHeap heap = new MaxHeap((z*2));
+        for(int k=0;k<z;k++){
             heap.insertElement(new Random().nextInt(101));
         }
-        int[] arr = new int[50];
-        for(int k =0 ;k < 50 ;k++){
-            arr[k] = heap.removeMax();
-//            System.err.println(heap.removeMax());
-        }
-        SortTools.printArr(arr);
-        SortTools.isSortRight(arr);
+        //100  50  34  5  48
+        /**
+         *        100           1  + 2  = 1+1+1
+         *     50    34         2  + 3  = 2+2+1
+         *    5  48             4  + 5
+         *                      8  + 6
+         *    99  92  73  85  50  8  7  38  16  41
+         */
+        SortTools.printArr(heap.arr);
+
+        SortTools.printTreeStr(heap.arr,heap.count);
+
+//        int[] arr = new int[z];
+//        for(int k =0 ;k < z ;k++){
+//            arr[k] = heap.removeMax();
+////            System.err.println(heap.removeMax());
+//        }
+//        SortTools.printArr(arr);
+//        SortTools.isSortRight(arr);
     }
 }

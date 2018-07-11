@@ -59,6 +59,65 @@ public class SortTools {
     }
 
 
+    /**
+     * 打印树的内容字符值
+     * @param arr
+     */
+    public static void printTreeStr(int[] arr,int count){
+        //行数: 1 2 4 8 16 32 ...
+        /**
+         *   1  1
+         *   3  2
+         *   7  3
+         *   15 4
+         *   31 5
+         *   规律为：2的n次方减1
+         */
+
+        /***
+         * 列数为:
+         *    2的n+1次方+
+         *    3
+         *    5
+         *    9
+         *    14
+         */
+        //先求出满树的行数
+        double pfg = Math.sqrt((count+1)*1.0);
+        int lineNum = (int)(Math.ceil(pfg));
+        for(int z = 1 ; z <= lineNum ; z++){
+            if(z != lineNum){
+                //不是最后一行操作
+                int temp = (int) Math.pow(z,2);
+                for(int m = 0 ; m < (2*temp+1)  ;m++){
+                    if(m%2==0){
+                        System.out.print(" ");
+                    }else{
+                        int point=(z==1)?1:(2*(z-1)+(m/2));
+                        System.out.print(arr[point]);
+                    }
+                }
+            }else{
+                int totalSum = 0;
+                for(int p = 1;p<=(lineNum-1);p++){
+                    totalSum += (int) Math.pow((p-1)*1.0,2.0);
+                }
+                for(int n = 0 ; n < count-totalSum  ;n++){
+                    if(n%2==0){
+                        System.out.print(" ");
+                    }else{
+                        int point=(z==1)?1:(2*(z-1)+(n/2));
+                        System.out.print(arr[point]);
+                    }
+                }
+            }
+            System.out.println();
+
+        }
+
+
+    }
+
 
 
 

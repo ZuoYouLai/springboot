@@ -1,0 +1,9 @@
+
+Mysql:
+   Cpu:
+       mysql版本
+   性能:
+   引擎：
+    myissm  innodb
+   数据库参数:
+   表设计 + sql语句的编写
